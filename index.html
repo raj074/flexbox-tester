@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <title>Flex</title>
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1 class="display-1">Flext Tester</h1>
+    <div class="row">
+
+      <div class="col-xl-6" >
+        
+        <form >
+          <label for="setWidth" class="form-label blue-bold">Width</label>
+          <input type="number" name="amountInput" min="0" max="100" value="100" oninput="this.form.amountRange.value=this.value;changeWidth(this.value)" />
+          <input type="range" class="form-range " id="slider" name="amountRange" min="30" max="100" value="100" oninput="this.form.amountInput.value=this.value;changeWidth(this.value)" />
+          
+        </form>
+        <hr>
+        <label for="" class="bluebold">Parent Flex Container</label><br>
+
+        <div id="flexProperties" class="row">
+
+          <div class="col-md col-sm-4 col-6"  >
+            <p >flex-direction</p>
+            
+              <div class="btn-group-vertical me-2" role="group" id="flex-direction">
+             
+                <button type="radio" class="btn btn-outline-primary" value="default">row</button>
+                <button type="radio" class="btn btn-outline-primary" >row-reverse</button>
+                <button type="radio" class="btn btn-outline-primary" >column</button>
+                <button type="radio" class="btn btn-outline-primary" >column-reverse</button>
+              </div>
+          
+          </div>
+
+          <div class="col-md col-sm-4 col-6"  >
+            <p >flex-wrap</p>
+            
+              <div class="btn-group-vertical me-2" role="group" id="flex-wrap">
+             
+                <button type="radio" class="btn btn-outline-primary" value="default">nowrap</button>
+                <button type="radio" class="btn btn-outline-primary" >wrap</button>
+                <button type="radio" class="btn btn-outline-primary" >wrap-reverse</button>
+
+              </div>
+          </div>
+
+          <div class="col-md col-sm-4 col-4" >
+            <p>justify-content</p>
+            
+              <div class="btn-group-vertical me-2" role="group" id="justify-content">
+             
+                <button type="radio" class="btn btn-outline-primary" value="default">flex-start</button>
+                <button type="radio" class="btn btn-outline-primary" >flex-end</button>
+                <button type="radio" class="btn btn-outline-primary" >center</button>
+                <button type="radio" class="btn btn-outline-primary" >space-between</button>
+                <button type="radio" class="btn btn-outline-primary" >space-around</button>
+
+              </div>
+          </div>
+
+          <div class="col-md col-sm-3 col-4" >
+            <p>align-items</p>
+            
+              <div class="btn-group-vertical me-2" role="group" id="align-items">
+                
+                <button type="radio" class="btn btn-outline-primary" value="default">stretch</button>
+                <button type="radio" class="btn btn-outline-primary" >flex-start</button>
+                <button type="radio" class="btn btn-outline-primary" >flex-end</button>
+                <button type="radio" class="btn btn-outline-primary" >center</button>
+                <button type="radio" class="btn btn-outline-primary" >baseline</button>
+
+              </div>
+          </div>
+
+          <div class="col-md col-sm-3 col-4" >
+            <p>align-content</p>
+            
+              <div class="btn-group-vertical me-2" role="group" id="align-content">
+             
+                <button type="radio" class="btn btn-outline-primary" value="default">stretch</button>
+                <button type="radio" class="btn btn-outline-primary" >flex-start</button>
+                <button type="radio" class="btn btn-outline-primary" >flex-end</button>
+                <button type="radio" class="btn btn-outline-primary" >center</button>
+                <button type="radio" class="btn btn-outline-primary" >space-between</button>
+                <button type="radio" class="btn btn-outline-primary" >space-around</button>
+
+              </div>
+          </div>
+          
+
+          
+          
+        </div>
+      </div>
+
+<!--  main 2nd col-xl-6-->
+      <div class="col-xl-6">
+        <button type="button" id="addChild">Add Child</button>
+        <div  id="flexbox-parent">
+          
+          <div class="flex-child">
+            <span class="badge rounded-pill bg-info text-dark">1</span>
+            <button type="button" class="btn-close" aria-label="Close" onclick="destroy()"></button>
+            <input type="number" class="inputValue" placeholder="flex-grow" oninput="flexgrow(this)">
+            <input type="number" class="inputValue" placeholder="flex-shrink" oninput="flexshrink(this)">
+            <input type="text" class="inputValue" placeholder="flex-basis" oninput="flexbasis(this)">
+            <select name="align-self" id="align-self" class="inputValue" oninput="alignself(this)">
+              <option value="auto" selected>auto</option>
+              <option value="flex-start">flex-start</option>
+              <option value="flex-end">flex-end</option>
+              <option value="center">center</option>
+              <option value="baseline">baseline</option>
+              <option value="stretch">stretch</option>
+            </select>
+          </div>
+          
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer fixed-bottom">
+      &COPY;Flex
+      <button id="contact">Contact us</button>
+    </footer>
+    
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+    <script src="scriptx.js"></script>
+  </body>
+</html>
